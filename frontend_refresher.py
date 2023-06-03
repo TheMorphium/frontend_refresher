@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
 
-import logging
 import os
 from dotenv import load_dotenv
 import subprocess
 import git
 from datetime import datetime
-logging.basicConfig(filename='refresh_log.log', encoding='utf-8', level=logging.DEBUG)
+
+
 
 
 
@@ -31,6 +31,9 @@ def rebuild_web_site():
 
 
 def run_check():
+    log = open("refresh_log.log", "a")
+    sys.stdout = log
+    print = log.info
     current_time = datetime.now().strftime("%m-%d-%Y_%Hh%Mm%Ss")
     print(f'Checking for updates at {current_time}')
     if check_for_updates():
