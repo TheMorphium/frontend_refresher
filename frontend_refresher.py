@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+
+
 import logging
 import os
 from dotenv import load_dotenv
