@@ -8,20 +8,20 @@ import git
 from datetime import datetime
 import logging
 
-logging.basicConfig(level=logging.DEBUG, format='%(message)s')
-logger = logging.getLogger()
-logger.addHandler(logging.FileHandler('/home/john/frontend_refresher/refresh_log.log', 'a'))
-print = logger.info
-
-
 
 
 load_dotenv()
 npm_build = 'npm run build'
 monitored_directory = os.getenv('monitored_directory')
+script_folder = os.getenv('script_folder')
+logfile = script_folder + '/refresh_log.log'
 
 
 
+logging.basicConfig(level=logging.DEBUG, format='%(message)s')
+logger = logging.getLogger()
+logger.addHandler(logging.FileHandler(logfile, 'a'))
+print = logger.info
 
 def check_for_updates():
     gitfolder = git.cmd.Git(monitored_directory)
