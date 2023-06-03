@@ -8,7 +8,7 @@ import git
 from datetime import datetime
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(message)s')
 logger = logging.getLogger()
 logger.addHandler(logging.FileHandler('refresh_log.log', 'a'))
 print = logger.info
