@@ -2,12 +2,16 @@
 
 
 import os
-import sys
 from dotenv import load_dotenv
 import subprocess
 import git
 from datetime import datetime
+import logging
 
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger()
+logger.addHandler(logging.FileHandler('refresh_log.log', 'a'))
+print = logger.info
 
 
 
@@ -32,9 +36,6 @@ def rebuild_web_site():
 
 
 def run_check():
-    log = open("refresh_log.log", "a")
-    sys.stdout = log
-    print = log.info
     current_time = datetime.now().strftime("%m-%d-%Y_%Hh%Mm%Ss")
     print(f'Checking for updates at {current_time}')
     if check_for_updates():
