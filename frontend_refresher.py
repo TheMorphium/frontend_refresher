@@ -10,7 +10,7 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG, format='%(message)s')
 logger = logging.getLogger()
-logger.addHandler(logging.FileHandler('refresh_log.log', 'a'))
+logger.addHandler(logging.FileHandler('/home/john/frontend_refresher/refresh_log.log', 'a'))
 print = logger.info
 
 
