@@ -14,7 +14,7 @@ load_dotenv()
 npm_build = 'npm run build'
 monitored_directory = os.getenv('monitored_directory')
 script_folder = os.getenv('script_folder')
-logfile = script_folder + '/refresh_log.log'
+logfile = f'{script_folder}/refresh_log.log'
 
 
 
@@ -25,8 +25,7 @@ print = logger.info
 
 def check_for_updates():
     gitfolder = git.cmd.Git(monitored_directory)
-    changes_made = gitfolder.pull() != 'Already up to date.'
-    return changes_made
+    return gitfolder.pull() != 'Already up to date.'
 
 
 def rebuild_web_site():
